@@ -1,9 +1,1 @@
-target/
-*.log
-*.class
-*.jar
-*.war
-*.ear
-*.iml
-.idea/
 .DS_Store
