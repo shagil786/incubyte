@@ -16,8 +16,20 @@ public class StringCalculator {
         numbers = numbers.replace("\n", delimiter);
         String[] parts = numbers.split(delimiter);
         int sum = 0;
+        StringBuilder negatives = new StringBuilder();
         for(String part : parts) {
-            sum += Integer.parseInt(part);
+            int number = Integer.parseInt(part);
+            if(number < 0) {
+                if(negatives.length() > 0) {
+                    negatives.append(",");
+                }
+                negatives.append(number);
+            }
+            sum += number;
+        }
+
+        if(negatives.length() > 0) {
+            throw new IllegalArgumentException("negative numbers not allowed: " + negatives);
         }
 
         return sum;
